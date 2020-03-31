@@ -64,7 +64,7 @@ Download and unpack the dataset into the root directory of this code. You should
 ```
 ./hlw/images/
 ./hlw/split/
-./metadata.csv/
+./hlw/metadata.csv
 ```
 The following code will assume the HLW dataset to be present, and access the dataset via the `hlw_dataset.py` class.
 
