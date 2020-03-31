@@ -13,7 +13,7 @@ NG-DSAC is a general method for fitting parametric models to a set of data point
 
 ![](images/network.png)
 
-A network consumes the input image and predicts two outputs: 1) a set of 2D points that the horizon line is fitted to using NG-DSAC, and 2) for each data point a sampling weight used by NG-DSAC to guide the search for the best model with highest inlier count. The output of the network is the horizon line represented by slope and intercept. The pipeline is trained end-to-end, i.e. the network learn to place the 2D points in a way that the robust model fit leads to a good horizon estimate.
+A network consumes the input image and predicts two outputs: 1) a set of 2D points that the horizon line is fitted to using NG-DSAC, and 2) for each data point a sampling weight used by NG-DSAC to guide the search for the best model with highest inlier count. The output of the network is the horizon line represented by slope and intercept. The pipeline is trained end-to-end, i.e. the network learns to place the 2D points in a way that the robust model fit leads to a good horizon estimate.
 
 For more details, we kindly refer to the [paper](https://arxiv.org/abs/1905.04132). You find a BibTeX reference of the paper at the end of this readme. 
 
@@ -24,7 +24,6 @@ NG-RANSAC is based on PyTorch. It requires the following Python packages, and we
 pytorch (1.1.0)
 opencv (4.1.0)
 scikit-image (0.15.0)
-
 ```
 
 ## Quick Start: Demo Script
@@ -66,7 +65,6 @@ Download and unpack the dataset into the root directory of this code. You should
 ./hlw/images/
 ./hlw/split/
 ./metadata.csv/
-
 ```
 The following code will assume the HLW dataset to be present, and access the dataset via the `hlw_dataset.py` class.
 
@@ -95,7 +93,7 @@ To evaluate a trained network on the HLW test set, call:
 ```bash
 python test.py <network_file>
 ```
-This repository contains a pretrained network for NG-DSAC, `models/weights_dsac_pretrained.net`, which can serve as `<network_file>` The script will write a `test_.txt` file which contains the test image file and the associated test loss in each line. The loss measures the maximum vertical distance between the estimated and ground truth horizon within the image area, normalized by the image height. After processing all test images, the test script displays area under the curve (AUC) up to a maximum loss threshold of 0.25.
+This repository contains a pretrained network for NG-DSAC, `models/weights_ngdsac_pretrained.net`, which can serve as `<network_file>`. The script will write a `test_.txt` file which contains the test image file name and the associated test loss in each line. The loss measures the maximum vertical distance between the estimated and ground truth horizon within the image area, normalized by the image height. After processing all test images, the test script displays the area under the curve (AUC) up to a maximum loss threshold of 0.25.
 
 Call the test script with the `-h` flag to display all available command line options. Make sure that testing option and options a model was trained with are consistent, e.g. to test our pretrained *DSAC only* network, you would call:
 
