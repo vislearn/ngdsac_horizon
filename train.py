@@ -89,9 +89,9 @@ scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=opt.schedulestep, gam
 train_log = open('log_'+opt.session+'.txt', 'w', 1)
 
 iteration = 0
-epochs = int(opt.iterations / len(trainset)) # number of epochs from number of target iterations 
+epoch = 0
 
-for epoch in range(epochs):
+while True:
 
 	print('=== Epoch: ', epoch, '========================================')
 
@@ -164,6 +164,14 @@ for epoch in range(epochs):
 		del exp_loss, points, log_probs, g_log_probs, g_points, losses, sample_grads
 
 		iteration += 1
+
+		if iteration > opt.iterations:
+			break
+
+	epoch += 1
+
+	if iteration > opt.iterations:
+		break
 
 print('Done without errors.')
 train_log.close()
