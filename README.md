@@ -57,7 +57,7 @@ Call `demo.py -h` for an overview of all command line arguments.
 
 ## HLW Dataset
 
-We trained and evaluated NG-DSAC using the "Horizon Lines in the Wild (HLW)" dataset, **version 1**, by Workman et al. Get the dataset [here](http://www.cs.uky.edu/~jacobs/datasets/hlw/).
+We trained and evaluated NG-DSAC using the "Horizon Lines in the Wild (HLW)" dataset, **version 1**, by Workman et al. Get the dataset [here](https://mvrl.cse.wustl.edu/datasets/hlw/) by filling out a request form.
 
 Download and unpack the dataset into the root directory of this code. You should end up with a new folder `hlw` with the following contents:
 
